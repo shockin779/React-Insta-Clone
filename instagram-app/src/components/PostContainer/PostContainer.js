@@ -1,5 +1,6 @@
 import React from 'react';
 import './PostContainer.css';
+import CommentSection from '../CommentSection/CommentSection';
 
 const PostContainer = props => {
     return (
@@ -14,6 +15,8 @@ const PostContainer = props => {
                     <i class="far fa-heart"></i>
                     <i class="far fa-comment"></i>
                 </div>
+                <p className='post-likes'>400 likes</p>
+                <CommentSection />
             </div>
         </main>
     );
