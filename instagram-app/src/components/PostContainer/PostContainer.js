@@ -5,19 +5,29 @@ import CommentSection from '../CommentSection/CommentSection';
 const PostContainer = props => {
     return (
         <main className='posts-section'>
-            <div className='post'>
-                <div className='author'>
-                    <img src='https://tk-assets.lambdaschool.com/ecd33d34-c124-4b75-92d2-e5c52c171ed8_11201517_887808411287357_1307163552_a.jpg'></img>
-                    <p>philzcoffee</p>
-                </div>
-                <img className='post-image' src='https://tk-assets.lambdaschool.com/69cf901b-f96d-466e-a745-ff2a01effac9_philz-image.jpg'></img>
-                <div className='post-icons'>
-                    <i class="far fa-heart"></i>
-                    <i class="far fa-comment"></i>
-                </div>
-                <p className='post-likes'>400 likes</p>
-                <CommentSection />
-            </div>
+            {
+                props.posts.map(post => {
+                    return(
+                        <div className='post'>
+                            <div className='author'>
+                            <img src={post.thumbnailUrl} alt={post.username}></img>
+                            <p>{post.username}</p>
+                            </div>
+                            <img className='post-image' src={post.imageUrl}></img>
+                            <div className='post-icons'>
+                                <i className="far fa-heart"></i>
+                                <i className="far fa-comment"></i>
+                            </div>
+                            <p className='post-likes'>{post.likes} likes</p>
+                            <CommentSection postComments={post.comments} postTime={post.timestamp} />
+                        </div>
+                    )
+                })
+            }
+            
+
+                
+                
         </main>
     );
 }

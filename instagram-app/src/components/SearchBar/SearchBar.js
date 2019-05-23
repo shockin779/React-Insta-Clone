@@ -5,16 +5,16 @@ const SearchBar = props => {
     return (
         <header>
             <div className='header-title'>
-                <i class="fab fa-instagram"></i>
+                <i className="fab fa-instagram"></i>
                 <h1>Instagram</h1>
             </div>
             <div className='searchbar'>
                 <input type='text' placeholder='Search'></input>
             </div>
             <div className="header-icons">
-                <i class="far fa-compass"></i>
-                <i class="far fa-heart"></i>
-                <i class="far fa-user"></i>
+                <i className="far fa-compass"></i>
+                <i className="far fa-heart"></i>
+                <i className="far fa-user"></i>
             </div>
         </header>
     );

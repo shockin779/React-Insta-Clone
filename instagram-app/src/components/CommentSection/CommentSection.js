@@ -1,24 +1,24 @@
 import React from 'react';
 import './CommentSection.css';
+import moment from 'moment';
 
 const CommentSection = props => {
+    let postTime = props.postTime;
     return (
         <div className='comment-section'>
             <div className='comments'>
-                <div className='comment'>
-                    <p className='comment-username'>philzcoffee</p>
-                    <p className='comment-text'>We've got more than just delicious coffees to offer at our shops. Don't forget to check out our selection of locally sou</p>
-                </div>
-                <div className='comment'>
-                    <p className='comment-username'>test2</p>
-                    <p className='comment-text'>We've got more than just delicious coffees to offer at our shops. Don't forget to check out our selection of locally sou</p>
-                </div>
-                <div className='comment'>
-                    <p className='comment-username'>test3</p>
-                    <p className='comment-text'>We've got more than just delicious coffees to offer at our shops. Don't forget to check out our selection of locally sou</p>
-                </div>
+                {
+                    props.postComments.map(comment => {
+                        return(
+                            <div className='comment'>
+                                <p className='comment-username'>{comment.username}</p>
+                                <p className='comment-text'>{comment.text}</p>
+                            </div>
+                        )
+                    })
+                }
             </div>
-            <p className='timestamp'>2 hours ago</p>
+            <p className='timestamp'>{postTime}</p>
             <div className='add-comment'>
                 <input className='comment-form' placeholder='Add a comment...'></input>
                 <p>...</p>
