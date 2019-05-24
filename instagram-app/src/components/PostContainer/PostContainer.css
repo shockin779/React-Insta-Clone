@@ -4,12 +4,14 @@
     margin-bottom: 60px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .posts-section .post {
     border: 2px solid #AAA;
     width: 30%;
-    margin-left: 20px;
+    height: auto;
+    margin-bottom: 30px;
 }
 
 .posts-section .author {

@@ -23,11 +23,7 @@ const PostContainer = props => {
                         </div>
                     )
                 })
-            }
-            
-
-                
-                
+            } 
         </main>
     );
 }
