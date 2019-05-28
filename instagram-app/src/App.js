@@ -10,7 +10,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       posts: PostData
-    }
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      posts: PostData
+    });
   }
 
   render() {

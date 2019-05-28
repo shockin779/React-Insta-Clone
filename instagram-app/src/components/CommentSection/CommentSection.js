@@ -1,6 +1,7 @@
 import React from 'react';
 import './CommentSection.css';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 const CommentSection = props => {
     let postTime = props.postTime;
@@ -25,6 +26,11 @@ const CommentSection = props => {
             </div>
         </div>
     );
+}
+
+CommentSection.propTypes = {
+    postComments: PropTypes.array,
+    postTime: PropTypes.string
 }
 
 export default CommentSection;
