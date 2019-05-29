@@ -11,7 +11,7 @@ const PostContainer = props => {
                 return post;
             }
         });
-        console.log(filteredPosts)
+
         return (
             <main className='posts-section'>
                 {
@@ -35,6 +35,7 @@ const PostContainer = props => {
                 } 
             </main>
         );
+        
     } else {
         return (
             <main className='posts-section'>
