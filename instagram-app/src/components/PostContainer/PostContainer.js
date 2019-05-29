@@ -4,29 +4,62 @@ import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
 
 const PostContainer = props => {
-    return (
-        <main className='posts-section'>
-            {
-                props.posts.map((post, index) => {
-                    return(
-                        <div className='post'>
-                            <div className='author'>
-                            <img src={post.thumbnailUrl} alt={post.username}></img>
-                            <p>{post.username}</p>
+
+    if(props.usernameSearch !== null) {
+        let filteredPosts = props.posts.filter(post => {
+            if(post.username.toLowerCase().includes(props.usernameSearch)){
+                return post;
+            }
+        });
+        console.log(filteredPosts)
+        return (
+            <main className='posts-section'>
+                {
+                    filteredPosts.map((post, index) => {
+                        return(
+                            <div className='post' key={index}>
+                                <div className='author'>
+                                <img src={post.thumbnailUrl} alt={post.username}></img>
+                                <p>{post.username}</p>
+                                </div>
+                                <img className='post-image' src={post.imageUrl}></img>
+                                <div className='post-icons'>
+                                    <i className="far fa-heart" data-index={index} onClick={props.likePost}></i>
+                                    <i className="far fa-comment"></i>
+                                </div>
+                                <p className='post-likes'>{post.likes} likes</p>
+                                <CommentSection addComment={props.addComment} postComments={post.comments} index={index} postTime={post.timestamp} />
                             </div>
-                            <img className='post-image' src={post.imageUrl}></img>
-                            <div className='post-icons'>
-                                <i className="far fa-heart" data-index={index} onClick={props.likePost}></i>
-                                <i className="far fa-comment"></i>
+                        )
+                    })
+                } 
+            </main>
+        );
+    } else {
+        return (
+            <main className='posts-section'>
+                {
+                    props.posts.map((post, index) => {
+                        return(
+                            <div className='post' key={index}>
+                                <div className='author'>
+                                <img src={post.thumbnailUrl} alt={post.username}></img>
+                                <p>{post.username}</p>
+                                </div>
+                                <img className='post-image' src={post.imageUrl}></img>
+                                <div className='post-icons'>
+                                    <i className="far fa-heart" data-index={index} onClick={props.likePost}></i>
+                                    <i className="far fa-comment"></i>
+                                </div>
+                                <p className='post-likes'>{post.likes} likes</p>
+                                <CommentSection addComment={props.addComment} postComments={post.comments} index={index} postTime={post.timestamp} />
                             </div>
-                            <p className='post-likes'>{post.likes} likes</p>
-                            <CommentSection addComment={props.addComment} postComments={post.comments} index={index} postTime={post.timestamp} />
-                        </div>
-                    )
-                })
-            } 
-        </main>
-    );
+                        )
+                    })
+                } 
+            </main>
+        );
+    }
 }
 
 PostContainer.propTypes = {

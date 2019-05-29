@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: PostData
+      posts: PostData,
+      usernameSearch: null
     };
   }
 
@@ -26,8 +27,11 @@ class App extends React.Component {
     let currentComments = postData[index].comments;
     currentComments.push(newComment);
     input.value = '';
+
+    localStorage.setItem('posts', JSON.stringify(postData));
+
     this.setState({
-      posts: postData
+      posts: postData,
     })
   }
 
@@ -42,15 +46,26 @@ class App extends React.Component {
     this.setState({ posts: allPosts });
   }
 
+  searchUserPost = e => {
+    e.preventDefault();
+    let username = e.target.value.toLowerCase();
+    this.setState({ usernameSearch: username });
+  }
+
   componentDidMount() {
     //Need to look up
+    let storedPosts = JSON.parse(localStorage.getItem('posts'));
+
+    if(storedPosts !== null) {
+      this.setState({ posts: storedPosts });
+    }
   }
 
   render() {
     return(
       <div className='App'>
-        <SearchBar />
-        <PostContainer likePost={this.likePost} addComment={this.addNewComment} posts={this.state.posts} />
+        <SearchBar searchPosts={this.searchUserPost} />
+        <PostContainer usernameSearch={this.state.usernameSearch} likePost={this.likePost} addComment={this.addNewComment} posts={this.state.posts} />
       </div>
     );
   }

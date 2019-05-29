@@ -6,12 +6,12 @@ import PropTypes from 'prop-types';
 const CommentSection = props => {
     let postTime = props.postTime;
     return (
-        <div className='comment-section'>
+        <div className='comment-section' key={`div${props.index}`}>
             <div className='comments'>
                 {
-                    props.postComments.map(comment => {
+                    props.postComments.map((comment, ind) => {
                         return(
-                            <div className='comment'>
+                            <div className='comment' key={ind}>
                                 <p className='comment-username'>{comment.username}</p>
                                 <p className='comment-text'>{comment.text}</p>
                             </div>

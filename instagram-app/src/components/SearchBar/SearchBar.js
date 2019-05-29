@@ -9,7 +9,7 @@ const SearchBar = props => {
                 <h1>Instagram</h1>
             </div>
             <div className='searchbar'>
-                <input type='text' placeholder='Search'></input>
+                <input type='text' placeholder='Search' onChange={props.searchPosts}></input>
             </div>
             <div className="header-icons">
                 <i className="far fa-compass"></i>
