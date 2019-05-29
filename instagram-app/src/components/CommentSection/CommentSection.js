@@ -20,10 +20,10 @@ const CommentSection = props => {
                 }
             </div>
             <p className='timestamp'>{postTime}</p>
-            <div className='add-comment'>
-                <input className='comment-form' placeholder='Add a comment...'></input>
+            <form className='add-comment' onSubmit={props.addComment}>
+                <input className='comment-form' data-index={props.index} key={props.index} placeholder='Add a comment...'></input>
                 <p>...</p>
-            </div>
+            </form>
         </div>
     );
 }

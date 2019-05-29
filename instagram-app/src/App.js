@@ -13,17 +13,44 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
+  addNewComment = e => {
+    e.preventDefault();
+    let input = e.target.querySelector('input');
+    let index = input.getAttribute('data-index');
+    let postData = this.state.posts;
+
+    let newComment = {};
+    newComment.username = 'taco-tuesday';
+    newComment.text = input.value;
+
+    let currentComments = postData[index].comments;
+    currentComments.push(newComment);
+    input.value = '';
     this.setState({
-      posts: PostData
-    });
+      posts: postData
+    })
+  }
+
+  likePost = e => {
+    e.preventDefault();
+    let index = e.target.getAttribute('data-index');
+    let allPosts = this.state.posts;
+    
+    //increment posts likes by 1
+    this.state.posts[index].likes += 1;
+
+    this.setState({ posts: allPosts });
+  }
+
+  componentDidMount() {
+    //Need to look up
   }
 
   render() {
     return(
       <div className='App'>
         <SearchBar />
-        <PostContainer posts={this.state.posts} />
+        <PostContainer likePost={this.likePost} addComment={this.addNewComment} posts={this.state.posts} />
       </div>
     );
   }

@@ -42,6 +42,7 @@
 .posts-section .post .post-icons i {
     font-size: 24px;
     margin-left: 15px;
+    cursor: pointer;
 }
 
 .posts-section .post .post-likes {

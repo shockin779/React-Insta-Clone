@@ -7,7 +7,7 @@ const PostContainer = props => {
     return (
         <main className='posts-section'>
             {
-                props.posts.map(post => {
+                props.posts.map((post, index) => {
                     return(
                         <div className='post'>
                             <div className='author'>
@@ -16,11 +16,11 @@ const PostContainer = props => {
                             </div>
                             <img className='post-image' src={post.imageUrl}></img>
                             <div className='post-icons'>
-                                <i className="far fa-heart"></i>
+                                <i className="far fa-heart" data-index={index} onClick={props.likePost}></i>
                                 <i className="far fa-comment"></i>
                             </div>
                             <p className='post-likes'>{post.likes} likes</p>
-                            <CommentSection postComments={post.comments} postTime={post.timestamp} />
+                            <CommentSection addComment={props.addComment} postComments={post.comments} index={index} postTime={post.timestamp} />
                         </div>
                     )
                 })
