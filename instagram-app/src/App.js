@@ -41,7 +41,9 @@ class App extends React.Component {
     let allPosts = this.state.posts;
     
     //increment posts likes by 1
-    this.state.posts[index].likes += 1;
+    allPosts[index].likes += 1;
+
+    localStorage.setItem('posts', JSON.stringify(allPosts));
 
     this.setState({ posts: allPosts });
   }

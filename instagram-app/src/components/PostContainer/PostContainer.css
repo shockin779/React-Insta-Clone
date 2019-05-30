@@ -14,6 +14,12 @@
     margin-bottom: 30px;
 }
 
+@media screen and (max-width: 1000px) {
+    .posts-section .post {
+        width: 48%;
+    }
+}
+
 .posts-section .author {
     display: flex;
     align-items: center;
