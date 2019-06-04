@@ -76,8 +76,7 @@ const dummyData = [
        text: 'I like how Half Dome looks so old and useless',
       },
      ],
-    },
-    
+    }
    ];
    
    export default dummyData;
