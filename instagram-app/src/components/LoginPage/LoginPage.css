@@ -4,4 +4,17 @@
     border-radius: 6px;
     margin: 10px auto;
     padding: 10px 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.login-form input {
+    margin: 5px auto;
+    width: 70%;
+}
+
+.login-form button {
+    width: 70%;
+    margin: 5px auto;
 }

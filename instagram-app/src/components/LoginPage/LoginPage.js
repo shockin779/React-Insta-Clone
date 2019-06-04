@@ -27,8 +27,10 @@ class LoginPage extends React.Component {
                 <div>Please Login</div>
                 <input name='username' onChange={this.handleInputUpdate} type='text' placeholder='Username'></input>
                 <input name='password' onChange={this.handleInputUpdate} type='password' placeholder='Password'></input>
-                <button onClick={this.handleLoginSubmit} value='Login'></button>
+                <button onClick={this.handleLoginSubmit} value='Login'>Login</button>
             </form>
         )
     }
 }
+
+export default LoginPage;
