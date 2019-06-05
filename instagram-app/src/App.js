@@ -20,7 +20,7 @@ class App extends React.Component {
   render() {
     return(
       <div className='App'>
-        <PostsPage />
+        <PostsPage loggedInUser={this.state.username} />
       </div>
     );
   }

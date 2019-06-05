@@ -20,7 +20,7 @@ class App extends React.Component {
     let postData = this.state.posts;
 
     let newComment = {};
-    newComment.username = 'taco-tuesday';
+    newComment.username = this.props.loggedInUser;
     newComment.text = input.value;
 
     let currentComments = postData[index].comments;
