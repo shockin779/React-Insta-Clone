@@ -4,7 +4,7 @@ import PostData from '../../dummy-data';
 import SearchBar from '../SearchBar/SearchBar';
 import PostContainer from '../PostContainer/PostContainer';
 
-class App extends React.Component {
+class PostsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,7 @@ class App extends React.Component {
     let postData = this.state.posts;
 
     let newComment = {};
-    newComment.username = 'taco-tuesday';
+    newComment.username = this.props.loggedInUser;
     newComment.text = input.value;
 
     let currentComments = postData[index].comments;
@@ -72,4 +72,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default PostsPage;
