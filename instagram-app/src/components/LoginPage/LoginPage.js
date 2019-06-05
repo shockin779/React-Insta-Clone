@@ -22,7 +22,7 @@ class LoginPage extends React.Component {
 
     render(){
         return (
-            <form method='post' onSubmit={this.handleLoginSubmit}className='login-form'>
+            <form onSubmit={this.handleLoginSubmit}className='login-form'>
                 <h3>Welcome to React Insta Clone</h3>
                 <div>Please Login</div>
                 <input name='username' onChange={this.handleInputUpdate} type='text' placeholder='Username'></input>
